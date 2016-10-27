@@ -1,0 +1,33 @@
+{
+    "targetPlatforms": [
+        "chalk"
+    ], 
+    "displayName": "Axiom Round", 
+    "name": "Axiom Round", 
+    "messageKeys": {
+        "dummy": 10000
+    }, 
+    "companyName": "Turner Vink", 
+    "enableMultiJS": true, 
+    "versionLabel": "1.0", 
+    "capabilities": [], 
+    "sdkVersion": "3", 
+    "appKeys": {
+        "dummy": 10000
+    }, 
+    "longName": "Axiom Round", 
+    "shortName": "Axiom Round", 
+    "watchapp": {
+        "watchface": true
+    }, 
+    "resources": {
+        "media": [
+            {
+                "type": "font", 
+                "name": "TIME_FONT_48", 
+                "file": "aero_matics_edit.ttf"
+            }
+        ]
+    }, 
+    "uuid": "bfd9db79-63c5-4ed6-a05b-4e5a9465e11d"
+}

@@ -20,7 +20,13 @@
       "dummy"
     ],
     "resources": {
-      "media": []
+      "media": [
+        {
+          "file": "aero_matics_edit.ttf",
+          "name": "TIME_FONT_48",
+          "type": "font"
+        }
+      ]
     }
   }
 }
