@@ -1,23 +1,20 @@
 {
-  "name": "axiom_round",
-  "author": "MakeAwesomeHappen",
+  "name": "Axiom Round",
+  "author": "Turner Vink",
   "version": "1.0.0",
   "keywords": ["pebble-app"],
   "private": true,
   "dependencies": {},
   "pebble": {
-    "displayName": "axiom_round",
+    "displayName": "Axiom Round",
     "uuid": "bfd9db79-63c5-4ed6-a05b-4e5a9465e11d",
     "sdkVersion": "3",
     "enableMultiJS": true,
     "targetPlatforms": [
-      "aplite",
-      "basalt",
-      "chalk",
-      "diorite"
+      "chalk"
     ],
     "watchapp": {
-      "watchface": false
+      "watchface": true
     },
     "messageKeys": [
       "dummy"
