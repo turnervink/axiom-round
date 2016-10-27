@@ -1,8 +1,8 @@
 #include <pebble.h>
+#include "main.h"
 #include "main_window.h"
 
 Window *main_window;
-TextLayer *time_layer;
 Layer *background_layer;
 GFont time_font;
 
@@ -16,8 +16,8 @@ void background_update_proc(Layer *layer, GContext *ctx) {
 
   // Draw bottom lines
   graphics_context_set_stroke_width(ctx, 12);
-  graphics_draw_line(ctx, GPoint(0, 50), GPoint(180, 50));
-  graphics_draw_line(ctx, GPoint(0, 180 - 50), GPoint(180, 180 - 50));
+  graphics_draw_line(ctx, GPoint(0, 60), GPoint(180, 60));
+  graphics_draw_line(ctx, GPoint(0, 180 - 60), GPoint(180, 180 - 60));
 
   // Draw top circle
   graphics_context_set_stroke_width(ctx, 10);
@@ -26,10 +26,8 @@ void background_update_proc(Layer *layer, GContext *ctx) {
 
   // Draw top lines
   graphics_context_set_stroke_width(ctx, 6);
-  graphics_draw_line(ctx, GPoint(0, 50), GPoint(180, 50));
-  graphics_draw_line(ctx, GPoint(0, 180 - 50), GPoint(180, 180 - 50));
-
-
+  graphics_draw_line(ctx, GPoint(0, 60), GPoint(180, 60));
+  graphics_draw_line(ctx, GPoint(0, 180 - 60), GPoint(180, 180 - 60));
 }
 
 static void main_window_load(Window *window) {
@@ -49,7 +47,7 @@ static void main_window_load(Window *window) {
   text_layer_set_font(time_layer, time_font);
   text_layer_set_text(time_layer, "12:30");
 
-  // Update time here
+  update_time();
 
   GSize time_size = text_layer_get_content_size(time_layer);
   layer_set_frame(text_layer_get_layer(time_layer), GRect(0, bounds.size.h / 2 - time_size.h / 2 - 8, bounds.size.w, time_size.h));
