@@ -6,3 +6,4 @@
 //
 
 uint32_t RESOURCE_ID_TIME_FONT_48 = 1;
+uint32_t RESOURCE_ID_SMALL_FONT_18 = 2;

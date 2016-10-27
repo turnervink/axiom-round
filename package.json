@@ -25,6 +25,11 @@
           "file": "aero_matics_edit.ttf",
           "name": "TIME_FONT_48",
           "type": "font"
+        },
+        {
+          "file": "aero_matics_edit.ttf",
+          "name": "SMALL_FONT_18",
+          "type": "font"
         }
       ]
     }

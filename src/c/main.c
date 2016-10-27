@@ -7,11 +7,18 @@ void update_time() {
   struct tm *tick_time = localtime(&temp);
 
   static char time_buffer[] = "00:00";
+  static char ampm_buffer[] = "xx";
 
   if (clock_is_24h_style() == true) {
   		strftime(time_buffer, sizeof("00:00:00"), "%H:%M", tick_time);
   } else {
   		strftime(time_buffer, sizeof("00:00:00"), "%I:%M", tick_time);
+  }
+
+  strftime(ampm_buffer, sizeof("xx"), "%p", tick_time);
+
+  if (clock_is_24h_style() == false) {
+    text_layer_set_text(ampm_layer, ampm_buffer);
   }
 
   text_layer_set_text(time_layer, time_buffer);

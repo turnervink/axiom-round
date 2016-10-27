@@ -9,6 +9,8 @@ Common symbol       size              file
 time_font           0x4               src/c/main_window.c.9.o
 background_layer    0x4               src/c/main_window.c.9.o
 main_window         0x4               src/c/main_window.c.9.o
+ampm_layer          0x4               src/c/main.c.9.o
+small_font          0x4               src/c/main_window.c.9.o
 time_layer          0x4               src/c/main.c.9.o
 
 Discarded input sections
@@ -34,6 +36,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 chalk/src/resource_ids.auto.c.9.o
  .bss           0x0000000000000000        0x0 chalk/src/resource_ids.auto.c.9.o
  .data.RESOURCE_ID_TIME_FONT_48
+                0x0000000000000000        0x4 chalk/src/resource_ids.auto.c.9.o
+ .data.RESOURCE_ID_SMALL_FONT_18
                 0x0000000000000000        0x4 chalk/src/resource_ids.auto.c.9.o
  .text          0x0000000000000000        0x0 src/message_keys.auto.c.9.o
  .bss           0x0000000000000000        0x0 src/message_keys.auto.c.9.o
@@ -1237,183 +1241,185 @@ LOAD /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/
  .note.gnu.build-id
                 0x0000000000000084       0x24 linker stubs
 
-.text           0x00000000000000a8      0x4de
+.text           0x00000000000000a8      0x5bb
  *(.text)
  .text          0x00000000000000a8       0x14 /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
  *(.text.*)
  .text.update_time
-                0x00000000000000bc       0x68 src/c/main.c.9.o
+                0x00000000000000bc       0x98 src/c/main.c.9.o
                 0x00000000000000bc                update_time
  .text.tick_handler
-                0x0000000000000124        0x4 src/c/main.c.9.o
+                0x0000000000000154        0x4 src/c/main.c.9.o
  .text.startup.main
-                0x0000000000000128       0x1c src/c/main.c.9.o
-                0x0000000000000128                main
+                0x0000000000000158       0x1c src/c/main.c.9.o
+                0x0000000000000158                main
  .text.main_window_unload
-                0x0000000000000144        0x2 src/c/main_window.c.9.o
- *fill*         0x0000000000000146        0x2 
+                0x0000000000000174        0x2 src/c/main_window.c.9.o
+ *fill*         0x0000000000000176        0x2 
  .text.main_window_load
-                0x0000000000000148      0x14c src/c/main_window.c.9.o
+                0x0000000000000178      0x1fc src/c/main_window.c.9.o
  .text.background_update_proc
-                0x0000000000000294      0x10c src/c/main_window.c.9.o
-                0x0000000000000294                background_update_proc
+                0x0000000000000374      0x10c src/c/main_window.c.9.o
+                0x0000000000000374                background_update_proc
  .text.main_window_push
-                0x00000000000003a0       0x58 src/c/main_window.c.9.o
-                0x00000000000003a0                main_window_push
+                0x0000000000000480       0x58 src/c/main_window.c.9.o
+                0x0000000000000480                main_window_push
  .text.app_event_loop
-                0x00000000000003f8        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x00000000000003f8                app_event_loop
+                0x00000000000004d8        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000004d8                app_event_loop
  .text.clock_is_24h_style
-                0x0000000000000404        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000404                clock_is_24h_style
+                0x00000000000004e4        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000004e4                clock_is_24h_style
  .text.fonts_load_custom_font
-                0x0000000000000410        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000410                fonts_load_custom_font
+                0x00000000000004f0        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000004f0                fonts_load_custom_font
  .text.graphics_draw_circle
-                0x000000000000041c        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x000000000000041c                graphics_draw_circle
+                0x00000000000004fc        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000004fc                graphics_draw_circle
  .text.graphics_draw_line
-                0x0000000000000428        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000428                graphics_draw_line
+                0x0000000000000508        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000508                graphics_draw_line
  .text.layer_add_child
-                0x0000000000000434        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000434                layer_add_child
+                0x0000000000000514        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000514                layer_add_child
  .text.layer_create
-                0x0000000000000440        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000440                layer_create
+                0x0000000000000520        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000520                layer_create
  .text.layer_get_bounds
-                0x000000000000044c        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x000000000000044c                layer_get_bounds
+                0x000000000000052c        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x000000000000052c                layer_get_bounds
  .text.layer_set_frame
-                0x0000000000000458        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000458                layer_set_frame
+                0x0000000000000538        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000538                layer_set_frame
  .text.layer_set_update_proc
-                0x0000000000000464        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000464                layer_set_update_proc
- .text.memset   0x0000000000000470        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000470                memset
+                0x0000000000000544        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000544                layer_set_update_proc
+ .text.memset   0x0000000000000550        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000550                memset
  .text.resource_get_handle
-                0x000000000000047c        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x000000000000047c                resource_get_handle
+                0x000000000000055c        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x000000000000055c                resource_get_handle
  .text.strftime
-                0x0000000000000488        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000488                strftime
+                0x0000000000000568        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000568                strftime
  .text.tick_timer_service_subscribe
-                0x0000000000000494        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000494                tick_timer_service_subscribe
+                0x0000000000000574        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000574                tick_timer_service_subscribe
  .text.window_create
-                0x00000000000004a0        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x00000000000004a0                window_create
+                0x0000000000000580        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000580                window_create
  .text.window_get_root_layer
-                0x00000000000004ac        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x00000000000004ac                window_get_root_layer
+                0x000000000000058c        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x000000000000058c                window_get_root_layer
  .text.window_set_window_handlers
-                0x00000000000004b8        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x00000000000004b8                window_set_window_handlers
+                0x0000000000000598        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000598                window_set_window_handlers
  .text.window_stack_push
-                0x00000000000004c4        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x00000000000004c4                window_stack_push
+                0x00000000000005a4        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000005a4                window_stack_push
  .text.graphics_context_set_stroke_color
-                0x00000000000004d0        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x00000000000004d0                graphics_context_set_stroke_color
+                0x00000000000005b0        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000005b0                graphics_context_set_stroke_color
  .text.window_set_background_color
-                0x00000000000004dc        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x00000000000004dc                window_set_background_color
+                0x00000000000005bc        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000005bc                window_set_background_color
  .text.localtime
-                0x00000000000004e8        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x00000000000004e8                localtime
+                0x00000000000005c8        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000005c8                localtime
  .text.graphics_context_set_stroke_width
-                0x00000000000004f4        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x00000000000004f4                graphics_context_set_stroke_width
+                0x00000000000005d4        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000005d4                graphics_context_set_stroke_width
  .text.text_layer_create
-                0x0000000000000500        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000500                text_layer_create
+                0x00000000000005e0        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000005e0                text_layer_create
  .text.text_layer_get_content_size
-                0x000000000000050c        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x000000000000050c                text_layer_get_content_size
+                0x00000000000005ec        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000005ec                text_layer_get_content_size
  .text.text_layer_get_layer
-                0x0000000000000518        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000518                text_layer_get_layer
+                0x00000000000005f8        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x00000000000005f8                text_layer_get_layer
  .text.text_layer_set_background_color
-                0x0000000000000524        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000524                text_layer_set_background_color
+                0x0000000000000604        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000604                text_layer_set_background_color
  .text.text_layer_set_font
-                0x0000000000000530        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000530                text_layer_set_font
+                0x0000000000000610        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000610                text_layer_set_font
  .text.text_layer_set_text
-                0x000000000000053c        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x000000000000053c                text_layer_set_text
+                0x000000000000061c        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x000000000000061c                text_layer_set_text
  .text.text_layer_set_text_alignment
-                0x0000000000000548        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000548                text_layer_set_text_alignment
+                0x0000000000000628        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000628                text_layer_set_text_alignment
  .text.text_layer_set_text_color
-                0x0000000000000554        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000554                text_layer_set_text_color
- .text.time     0x0000000000000560        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
-                0x0000000000000560                time
+                0x0000000000000634        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000634                text_layer_set_text_color
+ .text.time     0x0000000000000640        0xc /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+                0x0000000000000640                time
  *(.rodata)
- .rodata        0x000000000000056c        0x8 src/c/main_window.c.9.o
+ .rodata        0x000000000000064c        0x8 src/c/main_window.c.9.o
  *(.rodata*)
  .rodata.str1.1
-                0x0000000000000574        0xc src/c/main.c.9.o
- .rodata.str1.1
-                0x0000000000000580        0x6 src/c/main_window.c.9.o
+                0x0000000000000654        0xf src/c/main.c.9.o
 
-.glue_7         0x0000000000000588        0x0
+.glue_7         0x0000000000000664        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x0000000000000588        0x0
+.glue_7t        0x0000000000000664        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000000588        0x0
+.vfp11_veneer   0x0000000000000664        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000000000588        0x0
+.v4_bx          0x0000000000000664        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000000000588        0x0
+.iplt           0x0000000000000664        0x0
  .iplt          0x0000000000000000        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.rel.dyn        0x0000000000000588        0x0
+.rel.dyn        0x0000000000000664        0x0
  .rel.iplt      0x0000000000000000        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .rel.got       0x0000000000000000        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.data           0x0000000000000588        0xa
+.data           0x0000000000000664        0xd
  *(.data)
- .data          0x0000000000000588        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
- .data          0x0000000000000588        0x4 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x0000000000000588                __dso_handle
- .data          0x000000000000058c        0x0 src/c/main.c.9.o
- .data          0x000000000000058c        0x0 src/c/main_window.c.9.o
- .data          0x000000000000058c        0x0 chalk/appinfo.auto.c.9.o
- .data          0x000000000000058c        0x0 chalk/src/resource_ids.auto.c.9.o
- .data          0x000000000000058c        0x0 src/message_keys.auto.c.9.o
- .data          0x000000000000058c        0x0 /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
- .data          0x000000000000058c        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
- .data          0x000000000000058c        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .data          0x0000000000000664        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .data          0x0000000000000664        0x4 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000000664                __dso_handle
+ .data          0x0000000000000668        0x0 src/c/main.c.9.o
+ .data          0x0000000000000668        0x0 src/c/main_window.c.9.o
+ .data          0x0000000000000668        0x0 chalk/appinfo.auto.c.9.o
+ .data          0x0000000000000668        0x0 chalk/src/resource_ids.auto.c.9.o
+ .data          0x0000000000000668        0x0 src/message_keys.auto.c.9.o
+ .data          0x0000000000000668        0x0 /home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/chalk/lib/libpebble.a(tmp_LdmyHpebble.o)
+ .data          0x0000000000000668        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .data          0x0000000000000668        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
  *(.data.*)
- .data.time_buffer.7522
-                0x000000000000058c        0x6 src/c/main.c.9.o
+ .data.ampm_buffer.7524
+                0x0000000000000668        0x3 src/c/main.c.9.o
+ .data.time_buffer.7523
+                0x000000000000066b        0x6 src/c/main.c.9.o
 
-.igot.plt       0x0000000000000594        0x0
+.igot.plt       0x0000000000000674        0x0
  .igot.plt      0x0000000000000000        0x0 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got            0x0000000000000594       0x10
- .got           0x0000000000000594       0x10 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+.got            0x0000000000000674       0x18
+ .got           0x0000000000000674       0x18 /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got.plt        0x00000000000005a4        0xc
- .got.plt       0x00000000000005a4        0xc /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x00000000000005a4                _GLOBAL_OFFSET_TABLE_
+.got.plt        0x000000000000068c        0xc
+ .got.plt       0x000000000000068c        0xc /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x000000000000068c                _GLOBAL_OFFSET_TABLE_
 
-.bss            0x00000000000005b0       0x10
+.bss            0x0000000000000698       0x18
  *(.bss)
  *(.bss.*)
- COMMON         0x00000000000005b0        0x4 src/c/main.c.9.o
-                0x00000000000005b0                time_layer
- COMMON         0x00000000000005b4        0xc src/c/main_window.c.9.o
-                0x00000000000005b4                time_font
-                0x00000000000005b8                background_layer
-                0x00000000000005bc                main_window
+ COMMON         0x0000000000000698        0x8 src/c/main.c.9.o
+                0x0000000000000698                ampm_layer
+                0x000000000000069c                time_layer
+ COMMON         0x00000000000006a0       0x10 src/c/main_window.c.9.o
+                0x00000000000006a0                time_font
+                0x00000000000006a4                background_layer
+                0x00000000000006a8                main_window
+                0x00000000000006ac                small_font
 
 DISCARD
  libc.a(*)
@@ -1455,12 +1461,12 @@ OUTPUT(/home/turner/Documents/Dev Projects/axiom_round/build/chalk/pebble-app.el
  .comment       0x0000000000000000       0x4f src/message_keys.auto.c.9.o
  .comment       0x0000000000000000       0x4f /home/turner/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
 
-.debug_info     0x0000000000000000     0x1205
- .debug_info    0x0000000000000000      0x40c src/c/main.c.9.o
- .debug_info    0x000000000000040c      0x9ae src/c/main_window.c.9.o
- .debug_info    0x0000000000000dba      0x349 chalk/appinfo.auto.c.9.o
- .debug_info    0x0000000000001103       0x81 chalk/src/resource_ids.auto.c.9.o
- .debug_info    0x0000000000001184       0x81 src/message_keys.auto.c.9.o
+.debug_info     0x0000000000000000     0x132f
+ .debug_info    0x0000000000000000      0x47b src/c/main.c.9.o
+ .debug_info    0x000000000000047b      0xa57 src/c/main_window.c.9.o
+ .debug_info    0x0000000000000ed2      0x349 chalk/appinfo.auto.c.9.o
+ .debug_info    0x000000000000121b       0x93 chalk/src/resource_ids.auto.c.9.o
+ .debug_info    0x00000000000012ae       0x81 src/message_keys.auto.c.9.o
 
 .debug_abbrev   0x0000000000000000      0x576
  .debug_abbrev  0x0000000000000000      0x1f1 src/c/main.c.9.o
@@ -1469,9 +1475,9 @@ OUTPUT(/home/turner/Documents/Dev Projects/axiom_round/build/chalk/pebble-app.el
  .debug_abbrev  0x00000000000004ee       0x44 chalk/src/resource_ids.auto.c.9.o
  .debug_abbrev  0x0000000000000532       0x44 src/message_keys.auto.c.9.o
 
-.debug_loc      0x0000000000000000      0x216
+.debug_loc      0x0000000000000000      0x253
  .debug_loc     0x0000000000000000       0xa0 src/c/main.c.9.o
- .debug_loc     0x00000000000000a0      0x176 src/c/main_window.c.9.o
+ .debug_loc     0x00000000000000a0      0x1b3 src/c/main_window.c.9.o
 
 .debug_aranges  0x0000000000000000       0xb0
  .debug_aranges
@@ -1489,23 +1495,23 @@ OUTPUT(/home/turner/Documents/Dev Projects/axiom_round/build/chalk/pebble-app.el
  .debug_ranges  0x0000000000000000       0x38 src/c/main.c.9.o
  .debug_ranges  0x0000000000000038       0x28 src/c/main_window.c.9.o
 
-.debug_line     0x0000000000000000      0x63e
- .debug_line    0x0000000000000000      0x1d9 src/c/main.c.9.o
- .debug_line    0x00000000000001d9      0x1b6 src/c/main_window.c.9.o
- .debug_line    0x000000000000038f      0x11f chalk/appinfo.auto.c.9.o
- .debug_line    0x00000000000004ae       0xcb chalk/src/resource_ids.auto.c.9.o
- .debug_line    0x0000000000000579       0xc5 src/message_keys.auto.c.9.o
+.debug_line     0x0000000000000000      0x655
+ .debug_line    0x0000000000000000      0x1de src/c/main.c.9.o
+ .debug_line    0x00000000000001de      0x1c8 src/c/main_window.c.9.o
+ .debug_line    0x00000000000003a6      0x11f chalk/appinfo.auto.c.9.o
+ .debug_line    0x00000000000004c5       0xcb chalk/src/resource_ids.auto.c.9.o
+ .debug_line    0x0000000000000590       0xc5 src/message_keys.auto.c.9.o
 
-.debug_str      0x0000000000000000      0x917
- .debug_str     0x0000000000000000      0x247 src/c/main.c.9.o
-                                        0x28a (size before relaxing)
- .debug_str     0x0000000000000247      0x377 src/c/main_window.c.9.o
-                                        0x4de (size before relaxing)
- .debug_str     0x00000000000005be      0x2f8 chalk/appinfo.auto.c.9.o
+.debug_str      0x0000000000000000      0x95d
+ .debug_str     0x0000000000000000      0x25e src/c/main.c.9.o
+                                        0x2a1 (size before relaxing)
+ .debug_str     0x000000000000025e      0x38c src/c/main_window.c.9.o
+                                        0x4ea (size before relaxing)
+ .debug_str     0x00000000000005ea      0x2f8 chalk/appinfo.auto.c.9.o
                                         0x3e6 (size before relaxing)
- .debug_str     0x00000000000008b6       0x37 chalk/src/resource_ids.auto.c.9.o
-                                        0x106 (size before relaxing)
- .debug_str     0x00000000000008ed       0x2a src/message_keys.auto.c.9.o
+ .debug_str     0x00000000000008e2       0x51 chalk/src/resource_ids.auto.c.9.o
+                                        0x120 (size before relaxing)
+ .debug_str     0x0000000000000933       0x2a src/message_keys.auto.c.9.o
                                          0xf9 (size before relaxing)
 
 .debug_frame    0x0000000000000000       0xe8

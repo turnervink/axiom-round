@@ -8,3 +8,4 @@
 #define  DEFAULT_MENU_ICON  0
 
 #define  RESOURCE_ID_TIME_FONT_48  1
+#define  RESOURCE_ID_SMALL_FONT_18  2
