@@ -1,3 +1,5 @@
 {
-    "dummy": 10000
+    "MsgKeyError": 10002,
+    "MsgKeyTemp": 10000,
+    "MsgKeyTempC": 10001
 }

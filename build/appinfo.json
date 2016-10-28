@@ -5,7 +5,9 @@
     "displayName": "Axiom Round", 
     "name": "Axiom Round", 
     "messageKeys": {
-        "dummy": 10000
+        "MsgKeyTemp": 10000, 
+        "MsgKeyError": 10002, 
+        "MsgKeyTempC": 10001
     }, 
     "companyName": "Turner Vink", 
     "enableMultiJS": true, 
@@ -13,7 +15,9 @@
     "capabilities": [], 
     "sdkVersion": "3", 
     "appKeys": {
-        "dummy": 10000
+        "MsgKeyTemp": 10000, 
+        "MsgKeyError": 10002, 
+        "MsgKeyTempC": 10001
     }, 
     "longName": "Axiom Round", 
     "shortName": "Axiom Round", 
@@ -29,7 +33,17 @@
             }, 
             {
                 "type": "font", 
+                "name": "MED_FONT_22", 
+                "file": "aero_matics_edit.ttf"
+            }, 
+            {
+                "type": "font", 
                 "name": "SMALL_FONT_18", 
+                "file": "aero_matics_edit.ttf"
+            }, 
+            {
+                "type": "font", 
+                "name": "TINY_FONT_16", 
                 "file": "aero_matics_edit.ttf"
             }
         ]

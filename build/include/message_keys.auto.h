@@ -6,4 +6,6 @@
 // DO NOT MODIFY - CHANGES WILL BE OVERWRITTEN
 //
 
-extern uint32_t MESSAGE_KEY_dummy;
+extern uint32_t MESSAGE_KEY_MsgKeyError;
+extern uint32_t MESSAGE_KEY_MsgKeyTemp;
+extern uint32_t MESSAGE_KEY_MsgKeyTempC;

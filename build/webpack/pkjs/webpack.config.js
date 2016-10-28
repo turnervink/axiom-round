@@ -1,0 +1,6 @@
+var failPlugin = require('webpack-fail-plugin');
+var webpack = require('webpack');
+var providePlugin = new webpack.ProvidePlugin({'require': '_message_key_wrapper'});
+
+module.exports = {"resolveLoader": {"root": ["/home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/common/include", "/home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/common/tools", "/home/turner/.pebble-sdk/SDKs/current/node_modules", "/home/turner/Documents/Dev Projects/axiom_round/build/js"]}, "entry": ["/home/turner/Documents/Dev Projects/axiom_round/src/pkjs/index.js"], "resolve": {"extensions": ["", ".js", ".json"], "root": ["/home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/common/include", "/home/turner/.pebble-sdk/SDKs/current/sdk-core/pebble/common/tools", "/home/turner/.pebble-sdk/SDKs/current/node_modules", "/home/turner/Documents/Dev Projects/axiom_round/build/js"], "alias": {}}, "target": "node", "output": {"path": "build", "filename": "pebble-js-app.js"}};
+module.exports.module = {'loaders': [{'test': /\.json$/, 'loader': 'json-loader'}]};module.exports.plugins = [ failPlugin, providePlugin ];

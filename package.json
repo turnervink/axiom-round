@@ -17,7 +17,9 @@
       "watchface": true
     },
     "messageKeys": [
-      "dummy"
+      "MsgKeyTemp",
+      "MsgKeyTempC",
+      "MsgKeyError"
     ],
     "resources": {
       "media": [
@@ -28,7 +30,17 @@
         },
         {
           "file": "aero_matics_edit.ttf",
+          "name": "MED_FONT_22",
+          "type": "font"
+        },
+        {
+          "file": "aero_matics_edit.ttf",
           "name": "SMALL_FONT_18",
+          "type": "font"
+        },
+        {
+          "file": "aero_matics_edit.ttf",
+          "name": "TINY_FONT_16",
           "type": "font"
         }
       ]

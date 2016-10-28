@@ -6,4 +6,6 @@
 // DO NOT MODIFY - CHANGES WILL BE OVERWRITTEN
 //
 
-uint32_t MESSAGE_KEY_dummy = 10000;
+uint32_t MESSAGE_KEY_MsgKeyError = 10002;
+uint32_t MESSAGE_KEY_MsgKeyTemp = 10000;
+uint32_t MESSAGE_KEY_MsgKeyTempC = 10001;
