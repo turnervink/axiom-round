@@ -42,6 +42,11 @@
           "file": "aero_matics_edit.ttf",
           "name": "TINY_FONT_16",
           "type": "font"
+        },
+        {
+          "file": "weather_icons.png",
+          "name": "WEATHER_ICONS",
+          "type": "bitmap"
         }
       ]
     }
