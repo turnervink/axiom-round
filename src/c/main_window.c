@@ -21,7 +21,7 @@ void background_update_proc(Layer *layer, GContext *ctx) {
 
   // Draw top circle
   graphics_context_set_stroke_width(ctx, 10);
-  graphics_context_set_stroke_color(ctx, GColorBlue);
+  graphics_context_set_stroke_color(ctx, GColorBlueMoon);
   graphics_draw_circle(ctx, GPoint(bounds.size.w / 2, bounds.size.h / 2), 90);
 
   // Draw top lines
@@ -54,9 +54,9 @@ static void main_window_load(Window *window) {
   text_layer_set_text_color(ampm_layer, GColorWhite);
   text_layer_set_font(ampm_layer, small_font);
 
-  date_title_layer = text_layer_create(GRect(0, 7, bounds.size.w, bounds.size.h));
+  date_title_layer = text_layer_create(GRect(0, 8, bounds.size.w, bounds.size.h));
   text_layer_set_background_color(date_title_layer, GColorClear);
-  text_layer_set_text_color(date_title_layer, GColorVividCerulean);
+  text_layer_set_text_color(date_title_layer, GColorBlueMoon);
   text_layer_set_text_alignment(date_title_layer, GTextAlignmentCenter);
   text_layer_set_font(date_title_layer, tiny_font);
   text_layer_set_text(date_title_layer, "Day");
@@ -68,9 +68,9 @@ static void main_window_load(Window *window) {
   text_layer_set_font(date_layer, med_font);
   text_layer_set_text(date_layer, "01.01.2110");
 
-  temp_title_layer = text_layer_create(GRect(0, 150, bounds.size.w, bounds.size.h));
+  temp_title_layer = text_layer_create(GRect(0, 149, bounds.size.w, bounds.size.h));
   text_layer_set_background_color(temp_title_layer, GColorClear);
-  text_layer_set_text_color(temp_title_layer, GColorVividCerulean);
+  text_layer_set_text_color(temp_title_layer, GColorBlueMoon);
   text_layer_set_text_alignment(temp_title_layer, GTextAlignmentCenter);
   text_layer_set_font(temp_title_layer, tiny_font);
   text_layer_set_text(temp_title_layer, "Temp");
@@ -87,7 +87,7 @@ static void main_window_load(Window *window) {
   GSize time_size = text_layer_get_content_size(time_layer);
   GSize ampm_size = text_layer_get_content_size(ampm_layer);
   layer_set_frame(text_layer_get_layer(time_layer), GRect(0, bounds.size.h / 2 - time_size.h / 2 - 8, bounds.size.w, time_size.h));
-  layer_set_frame(text_layer_get_layer(ampm_layer), GRect(bounds.size.w - (ampm_size.w + 10), bounds.size.h / 2 - ampm_size.h / 2, ampm_size.w, ampm_size.h + 5));
+  layer_set_frame(text_layer_get_layer(ampm_layer), GRect(bounds.size.w - (ampm_size.w + 15), bounds.size.h / 2 - ampm_size.h / 2, ampm_size.w, ampm_size.h + 5));
 
   layer_add_child(window_get_root_layer(window), background_layer);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(time_layer));
