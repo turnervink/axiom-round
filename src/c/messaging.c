@@ -22,6 +22,10 @@ static void inbox_recv_handler(DictionaryIterator *iter, void *ctx) {
       snprintf(tempc_buffer, sizeof(tempc_buffer), "%d°", (int)t->value->int32);
     }
 
+    if (t->key == MESSAGE_KEY_MsgKeyCondCode) {
+      APP_LOG(APP_LOG_LEVEL_INFO, "Received condcode");
+    }
+
     if (t->key == MESSAGE_KEY_MsgKeyError) {
       APP_LOG(APP_LOG_LEVEL_INFO, "Received error");
     }

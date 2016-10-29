@@ -34,10 +34,14 @@ function locationSuccess(pos) {
         var temperaturec = Math.round(json.main.temp - 273.15); // Convert from Kelvin to Celsius
         console.log("Temperature in Celsius is " + temperaturec);
 
+        var condcode = json.weather[0].id;
+        console.log("Conditions code is " + condcode);
+
         // Assemble weather info into dictionary
         var dictionary = {
           "MsgKeyTemp": temperature,
           "MsgKeyTempC": temperaturec,
+          "MsgKeyCondCode": condcode
         };
       }
 

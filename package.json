@@ -19,6 +19,7 @@
     "messageKeys": [
       "MsgKeyTemp",
       "MsgKeyTempC",
+      "MsgKeyCondCode",
       "MsgKeyError"
     ],
     "resources": {

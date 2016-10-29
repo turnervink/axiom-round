@@ -33,7 +33,7 @@ void background_update_proc(Layer *layer, GContext *ctx) {
 
 void weather_icon_update_proc(Layer *layer, GContext *ctx) {
   graphics_context_set_compositing_mode(ctx, GCompOpSet);
-  current_conditions = gbitmap_create_as_sub_bitmap(weather_icons, GRect(16 * 0, 16 * 0, 16, 16));
+  current_conditions = gbitmap_create_as_sub_bitmap(weather_icons, GRect(0, 0, 16, 16));
   graphics_draw_bitmap_in_rect(ctx, current_conditions, layer_get_bounds(weather_icon_layer));
 }
 
