@@ -25,7 +25,7 @@ void update_time() {
 
   strftime(date_buffer, sizeof("01.01.2110"), "%m.%d.%Y", tick_time);
 
-  text_layer_set_text(time_layer, "12:30");
+  text_layer_set_text(time_layer, time_buffer);
   text_layer_set_text(date_layer, date_buffer);
 }
 
