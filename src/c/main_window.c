@@ -32,7 +32,43 @@ void background_update_proc(Layer *layer, GContext *ctx) {
 }
 
 void weather_icon_update_proc(int code) {
-  bitmap_layer_set_bitmap(weather_icon_layer, clear_night);
+  APP_LOG(APP_LOG_LEVEL_INFO, "Picking icon for %d", code);
+
+  time_t temp = time(NULL);
+  struct tm *tick_time = localtime(&temp);
+
+  if (code == 0) {
+    bitmap_layer_set_bitmap(weather_icon_layer, NULL);
+  } else if (code >= 900) {
+    bitmap_layer_set_bitmap(weather_icon_layer, unknown);
+  } else if ((code % 801) == 0) {
+    if (tick_time->tm_hour >= 20) {
+      bitmap_layer_set_bitmap(weather_icon_layer, pcloudy_night);
+    } else {
+      bitmap_layer_set_bitmap(weather_icon_layer, pcloudy_day);
+    }
+  } else if ((code % 800) == 0) {
+    if (tick_time->tm_hour >= 20) {
+      bitmap_layer_set_bitmap(weather_icon_layer, clear_night);
+    } else {
+      bitmap_layer_set_bitmap(weather_icon_layer, clear_day);
+    }
+  } else if ((code % 800) < 100) {
+    bitmap_layer_set_bitmap(weather_icon_layer, cloudy);
+  } else if ((code % 700) < 100) {
+    bitmap_layer_set_bitmap(weather_icon_layer, fog);
+  } else if ((code % 600) < 100) {
+    bitmap_layer_set_bitmap(weather_icon_layer, snow);
+  } else if ((code % 500) < 100) {
+    bitmap_layer_set_bitmap(weather_icon_layer, rain);
+  } else if ((code % 300) < 100) {
+    bitmap_layer_set_bitmap(weather_icon_layer, rain);
+  } else if ((code % 200) < 100) {
+    bitmap_layer_set_bitmap(weather_icon_layer, thunder);
+  } else {
+    bitmap_layer_set_bitmap(weather_icon_layer, unknown);
+  }
+
 }
 
 static void main_window_load(Window *window) {
