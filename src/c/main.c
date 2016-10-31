@@ -14,7 +14,7 @@ void update_time() {
   if (clock_is_24h_style() == true) {
   		strftime(time_buffer, sizeof("00:00:00"), "%H:%M", tick_time);
   } else {
-  		strftime(time_buffer, sizeof("00:00:00"), "%l:%M", tick_time);
+  		strftime(time_buffer, sizeof("00:00:00"), "%I:%M", tick_time);
   }
 
   strftime(ampm_buffer, sizeof("xx"), "%P", tick_time);
@@ -25,7 +25,7 @@ void update_time() {
 
   strftime(date_buffer, sizeof("01.01.2110"), "%m.%d.%Y", tick_time);
 
-  text_layer_set_text(time_layer, time_buffer);
+  text_layer_set_text(time_layer, "12:30");
   text_layer_set_text(date_layer, date_buffer);
 }
 

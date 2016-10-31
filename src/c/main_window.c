@@ -78,7 +78,7 @@ static void main_window_load(Window *window) {
   background_layer = layer_create(GRect(0, 0, bounds.size.w, bounds.size.h));
   layer_set_update_proc(background_layer, background_update_proc);
 
-  weather_icon_layer = bitmap_layer_create(GRect(20, bounds.size.h / 2 - 8, 16, 16));
+  weather_icon_layer = bitmap_layer_create(GRect(13, bounds.size.h / 2 - 8, 16, 16));
   weather_icons = gbitmap_create_with_resource(RESOURCE_ID_WEATHER_ICONS);
 
   // Create weather icon bitmaps
@@ -93,8 +93,7 @@ static void main_window_load(Window *window) {
   fog = gbitmap_create_as_sub_bitmap(weather_icons, GRect(48, 16, 16, 16));
   unknown = gbitmap_create_as_sub_bitmap(weather_icons, GRect(64, 16, 16, 16));
 
-
-  weather_icon_update_proc(0);
+  weather_icon_update_proc(0); // Show no icon
 
   // Create fonts
   time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_TIME_FONT_48));
@@ -146,7 +145,7 @@ static void main_window_load(Window *window) {
   GSize time_size = text_layer_get_content_size(time_layer);
   GSize ampm_size = text_layer_get_content_size(ampm_layer);
   layer_set_frame(text_layer_get_layer(time_layer), GRect(0, bounds.size.h / 2 - time_size.h / 2 - 8, bounds.size.w, time_size.h));
-  layer_set_frame(text_layer_get_layer(ampm_layer), GRect(bounds.size.w - (ampm_size.w + 15), bounds.size.h / 2 - ampm_size.h / 2, ampm_size.w, ampm_size.h + 5));
+  layer_set_frame(text_layer_get_layer(ampm_layer), GRect(bounds.size.w - 10 - (ampm_size.w), bounds.size.h / 2 - ampm_size.h / 2, ampm_size.w, ampm_size.h + 5));
 
   layer_add_child(window_get_root_layer(window), background_layer);
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(weather_icon_layer));
