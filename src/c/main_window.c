@@ -4,7 +4,6 @@
 
 Window *main_window;
 Layer *background_layer;
-static BitmapLayer *weather_icon_layer;
 GFont time_font, med_font, small_font, tiny_font;
 
 void background_update_proc(Layer *layer, GContext *ctx) {
@@ -69,6 +68,21 @@ void weather_icon_update_proc(int code) {
     bitmap_layer_set_bitmap(weather_icon_layer, unknown);
   }
 
+}
+
+void size_layers() {
+  GRect bounds = layer_get_bounds(window_get_root_layer(main_window));
+
+  GSize time_size = text_layer_get_content_size(time_layer);
+  layer_set_frame(text_layer_get_layer(time_layer), GRect(bounds.size.w / 2 - (time_size.w / 2), bounds.size.h / 2 - time_size.h / 2 - 8, time_size.w, time_size.h));
+  layer_set_bounds(text_layer_get_layer(time_layer), GRect(0, 0, time_size.w, bounds.size.h));
+  GRect time_frame = layer_get_bounds(text_layer_get_layer(time_layer));
+
+  GSize ampm_size = text_layer_get_content_size(ampm_layer);
+  //layer_set_frame(text_layer_get_layer(ampm_layer), GRect(bounds.size.w - 10 - (ampm_size.w), bounds.size.h / 2 - ampm_size.h / 2, ampm_size.w, ampm_size.h + 5));
+  layer_set_frame(text_layer_get_layer(ampm_layer), GRect(time_frame.origin.x, bounds.size.h / 2 - (ampm_size.h / 2), ampm_size.w, ampm_size.h));
+
+  layer_set_frame(bitmap_layer_get_layer(weather_icon_layer), GRect(13, bounds.size.h / 2 - 8, 16, 16));
 }
 
 static void main_window_load(Window *window) {
@@ -142,10 +156,7 @@ static void main_window_load(Window *window) {
 
   update_time();
 
-  GSize time_size = text_layer_get_content_size(time_layer);
-  GSize ampm_size = text_layer_get_content_size(ampm_layer);
-  layer_set_frame(text_layer_get_layer(time_layer), GRect(0, bounds.size.h / 2 - time_size.h / 2 - 8, bounds.size.w, time_size.h));
-  layer_set_frame(text_layer_get_layer(ampm_layer), GRect(bounds.size.w - 10 - (ampm_size.w), bounds.size.h / 2 - ampm_size.h / 2, ampm_size.w, ampm_size.h + 5));
+  size_layers();
 
   layer_add_child(window_get_root_layer(window), background_layer);
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(weather_icon_layer));
@@ -155,6 +166,12 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(date_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(temp_title_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(temp_layer));
+
+  if (persist_exists(MESSAGE_KEY_MsgKeyCelsius)) {
+    use_celsius = persist_read_int(MESSAGE_KEY_MsgKeyCelsius);
+  } else {
+    use_celsius = 1;
+  }
 }
 
 static void main_window_unload(Window *window) {

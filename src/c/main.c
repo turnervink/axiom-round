@@ -25,12 +25,24 @@ void update_time() {
 
   strftime(date_buffer, sizeof("01.01.2110"), "%m.%d.%Y", tick_time);
 
-  text_layer_set_text(time_layer, "12:30");
+  text_layer_set_text(time_layer, time_buffer+(('0' == time_buffer[0])?1:0));
   text_layer_set_text(date_layer, date_buffer);
+
+  size_layers();
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   update_time();
+
+  if (tick_time->tm_min == 0) { // Update weather every hour
+    bitmap_layer_set_bitmap(weather_icon_layer, NULL);
+
+    DictionaryIterator * iter;
+    app_message_outbox_begin(&iter);
+
+    dict_write_uint8(iter, MESSAGE_KEY_MsgKeyCondCode, 0);
+    app_message_outbox_send();
+  }
 }
 
 static void init() {
@@ -42,7 +54,7 @@ static void init() {
 }
 
 static void deinit() {
-
+  persist_write_int(MESSAGE_KEY_MsgKeyCelsius, use_celsius);
 }
 
 int main(void) {

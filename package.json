@@ -2,9 +2,13 @@
   "name": "Axiom Round",
   "author": "Turner Vink",
   "version": "1.0.0",
-  "keywords": ["pebble-app"],
+  "keywords": [
+    "pebble-app"
+  ],
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "pebble-clay": "^1.0.4"
+  },
   "pebble": {
     "displayName": "Axiom Round",
     "uuid": "bfd9db79-63c5-4ed6-a05b-4e5a9465e11d",
@@ -20,7 +24,8 @@
       "MsgKeyTemp",
       "MsgKeyTempC",
       "MsgKeyCondCode",
-      "MsgKeyError"
+      "MsgKeyError",
+      "MsgKeyCelsius"
     ],
     "resources": {
       "media": [

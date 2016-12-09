@@ -1,3 +1,7 @@
+var Clay = require('pebble-clay');
+var clayConfig = require('./config.json');
+var clay = new Clay(clayConfig);
+
 var xhrRequest = function (url, type, callback) {
   var xhr = new XMLHttpRequest();
   xhr.onload = function () {
@@ -94,4 +98,15 @@ Pebble.addEventListener("ready", function(e) {
   console.log("PebbleKit JS Ready!");
 
 	getWeather(); // Get weather on launch
+});
+
+Pebble.addEventListener("appmessage", function(e) {
+  console.log("AppMessage received!");
+
+  var msgContents = e.payload;
+
+  if (msgContents.MsgKeyCondCode === 0) {
+    console.log("Received weather update request!");
+    getWeather();
+  }
 });

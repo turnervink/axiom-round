@@ -1,0 +1,24 @@
+[
+  {
+    "type": "section",
+    "items": [
+      {
+        "type": "heading",
+        "size": 1,
+        "id": "main-heading",
+        "defaultValue": "<p style='text-align:center;'>Axiom Round</p>"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "items": [
+      {
+        "type": "toggle",
+         "messageKey": "MsgKeyCelsius",
+         "label": "Use Celsius",
+         "defaultValue": true
+      }
+    ]
+  }
+]

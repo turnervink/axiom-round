@@ -31,11 +31,21 @@ static void inbox_recv_handler(DictionaryIterator *iter, void *ctx) {
       APP_LOG(APP_LOG_LEVEL_INFO, "Received error");
     }
 
+    if (t->key == MESSAGE_KEY_MsgKeyCelsius) {
+      APP_LOG(APP_LOG_LEVEL_INFO, "Received use_celsius");
+      use_celsius = t->value->int32;
+    }
+
     t = dict_read_next(iter);
   }
 
   APP_LOG(APP_LOG_LEVEL_INFO, "Setting temp text");
-  text_layer_set_text(temp_layer, tempc_buffer); // Display weather after all keys received
+  if (use_celsius == 1) {
+    text_layer_set_text(temp_layer, tempc_buffer); // Display weather after all keys received
+  } else {
+    text_layer_set_text(temp_layer, temp_buffer); // Display weather after all keys received
+  }
+
 }
 
 void inbox_failed_handler(AppMessageResult reason, void *context) {
