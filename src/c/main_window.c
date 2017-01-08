@@ -74,13 +74,13 @@ void size_layers() {
   GRect bounds = layer_get_bounds(window_get_root_layer(main_window));
 
   GSize time_size = text_layer_get_content_size(time_layer);
-  layer_set_frame(text_layer_get_layer(time_layer), GRect(bounds.size.w / 2 - (time_size.w / 2), bounds.size.h / 2 - time_size.h / 2 - 8, time_size.w, time_size.h));
-  layer_set_bounds(text_layer_get_layer(time_layer), GRect(0, 0, time_size.w, bounds.size.h));
+  layer_set_frame(text_layer_get_layer(time_layer), GRect(0, bounds.size.h / 2 - time_size.h / 2 - 8, bounds.size.w, time_size.h));
+  layer_set_bounds(text_layer_get_layer(time_layer), GRect(0, 0, bounds.size.w, bounds.size.h));
   GRect time_frame = layer_get_bounds(text_layer_get_layer(time_layer));
 
   GSize ampm_size = text_layer_get_content_size(ampm_layer);
   //layer_set_frame(text_layer_get_layer(ampm_layer), GRect(bounds.size.w - 10 - (ampm_size.w), bounds.size.h / 2 - ampm_size.h / 2, ampm_size.w, ampm_size.h + 5));
-  layer_set_frame(text_layer_get_layer(ampm_layer), GRect(time_frame.origin.x, bounds.size.h / 2 - (ampm_size.h / 2), ampm_size.w, ampm_size.h));
+  layer_set_frame(text_layer_get_layer(ampm_layer), GRect(bounds.size.w - (13 + ampm_size.w), bounds.size.h / 2 - (ampm_size.h / 2), ampm_size.w, ampm_size.h + 3));
 
   layer_set_frame(bitmap_layer_get_layer(weather_icon_layer), GRect(13, bounds.size.h / 2 - 8, 16, 16));
 }

@@ -8,6 +8,7 @@ char tempc_buffer[15];
 
 static void inbox_recv_handler(DictionaryIterator *iter, void *ctx) {
   APP_LOG(APP_LOG_LEVEL_INFO, "Incoming mesage received!");
+  bool error = false;
 
   Tuple *t = dict_read_first(iter);
   while(t) {
@@ -29,6 +30,7 @@ static void inbox_recv_handler(DictionaryIterator *iter, void *ctx) {
 
     if (t->key == MESSAGE_KEY_MsgKeyError) {
       APP_LOG(APP_LOG_LEVEL_INFO, "Received error");
+      error = true;
     }
 
     if (t->key == MESSAGE_KEY_MsgKeyCelsius) {
@@ -39,13 +41,15 @@ static void inbox_recv_handler(DictionaryIterator *iter, void *ctx) {
     t = dict_read_next(iter);
   }
 
-  APP_LOG(APP_LOG_LEVEL_INFO, "Setting temp text");
-  if (use_celsius == 1) {
-    text_layer_set_text(temp_layer, tempc_buffer); // Display weather after all keys received
-  } else {
-    text_layer_set_text(temp_layer, temp_buffer); // Display weather after all keys received
+  if (!error) {
+    APP_LOG(APP_LOG_LEVEL_INFO, "Setting temp text");
+    if (use_celsius == 1) {
+      text_layer_set_text(temp_layer, tempc_buffer); // Display weather after all keys received
+    } else {
+      text_layer_set_text(temp_layer, temp_buffer); // Display weather after all keys received
+    }
   }
-
+  
 }
 
 void inbox_failed_handler(AppMessageResult reason, void *context) {

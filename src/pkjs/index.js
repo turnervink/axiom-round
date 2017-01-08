@@ -16,7 +16,7 @@ function locationSuccess(pos) {
   console.log("Fetching weather with GPS location");
   console.log("Lat is " + pos.coords.latitude);
   console.log("Lon is " + pos.coords.longitude);
-  var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + '&appid=2874bea34ea1f91820fa07af69939eea&lang=';
+  var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + '&appid=26572bd92483d703bc3cf2e160e95cd1&lang=';
 
   console.log('URL is ' + url);
 
@@ -29,7 +29,7 @@ function locationSuccess(pos) {
 
       if (!json.main) {
         var dictionary = {
-          "CfgKeyWeatherError": "error",
+          "MsgKeyError": "error",
         };
       } else {
         var temperature = Math.round(((json.main.temp - 273.15) * 1.8) + 32); // Convert from Kelvin to Fahrenheit
