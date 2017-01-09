@@ -20,5 +20,9 @@
          "defaultValue": true
       }
     ]
+  },
+  {
+    "type": "submit",
+    "defaultValue": "Submit"
   }
 ]
