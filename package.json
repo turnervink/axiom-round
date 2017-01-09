@@ -2,9 +2,13 @@
   "name": "Axiom Round",
   "author": "Turner Vink",
   "version": "1.0.0",
-  "keywords": ["pebble-app"],
+  "keywords": [
+    "pebble-app"
+  ],
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "pebble-clay": "^1.0.4"
+  },
   "pebble": {
     "displayName": "Axiom Round",
     "uuid": "bfd9db79-63c5-4ed6-a05b-4e5a9465e11d",
@@ -17,10 +21,40 @@
       "watchface": true
     },
     "messageKeys": [
-      "dummy"
+      "MsgKeyTemp",
+      "MsgKeyTempC",
+      "MsgKeyCondCode",
+      "MsgKeyError",
+      "MsgKeyCelsius"
     ],
     "resources": {
-      "media": []
+      "media": [
+        {
+          "file": "aero_matics_edit.ttf",
+          "name": "TIME_FONT_48",
+          "type": "font"
+        },
+        {
+          "file": "aero_matics_edit.ttf",
+          "name": "MED_FONT_22",
+          "type": "font"
+        },
+        {
+          "file": "aero_matics_edit.ttf",
+          "name": "SMALL_FONT_18",
+          "type": "font"
+        },
+        {
+          "file": "aero_matics_edit.ttf",
+          "name": "TINY_FONT_16",
+          "type": "font"
+        },
+        {
+          "file": "weather_icons.png",
+          "name": "WEATHER_ICONS",
+          "type": "bitmap"
+        }
+      ]
     }
   }
 }
