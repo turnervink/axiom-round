@@ -1,6 +1,7 @@
 #include <pebble.h>
 #include "main_window.h"
 #include "messaging.h"
+#include "weather_codes.h"
 
 char temp_buffer[15];
 char tempc_buffer[15];
@@ -25,7 +26,8 @@ static void inbox_recv_handler(DictionaryIterator *iter, void *ctx) {
 
     if (t->key == MESSAGE_KEY_MsgKeyCondCode) {
       APP_LOG(APP_LOG_LEVEL_INFO, "Received condcode");
-      weather_icon_update_proc((int)t->value->int32);
+      APP_LOG(APP_LOG_LEVEL_INFO, "condcode is %d", (int)t->value->int32);
+      find_condition_code((int)t->value->int32);
     }
 
     if (t->key == MESSAGE_KEY_MsgKeyError) {
@@ -49,7 +51,7 @@ static void inbox_recv_handler(DictionaryIterator *iter, void *ctx) {
       text_layer_set_text(temp_layer, temp_buffer); // Display weather after all keys received
     }
   }
-  
+
 }
 
 void inbox_failed_handler(AppMessageResult reason, void *context) {

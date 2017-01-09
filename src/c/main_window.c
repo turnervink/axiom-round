@@ -1,6 +1,7 @@
 #include <pebble.h>
 #include "main.h"
 #include "main_window.h"
+#include "weather_codes.h"
 
 Window *main_window;
 Layer *background_layer;
@@ -30,13 +31,13 @@ void background_update_proc(Layer *layer, GContext *ctx) {
   graphics_draw_line(ctx, GPoint(0, 180 - 60), GPoint(180, 180 - 60));
 }
 
-void weather_icon_update_proc(int code) {
-  APP_LOG(APP_LOG_LEVEL_INFO, "Picking icon for %d", code);
+void weather_icon_update_proc(int display_code) {
+  APP_LOG(APP_LOG_LEVEL_INFO, "Picking icon for display code %d", display_code);
 
   time_t temp = time(NULL);
   struct tm *tick_time = localtime(&temp);
 
-  if (code == 0) {
+  /*if (code == 0) {
     bitmap_layer_set_bitmap(weather_icon_layer, NULL);
   } else if (code >= 900) {
     bitmap_layer_set_bitmap(weather_icon_layer, unknown);
@@ -66,6 +67,46 @@ void weather_icon_update_proc(int code) {
     bitmap_layer_set_bitmap(weather_icon_layer, thunder);
   } else {
     bitmap_layer_set_bitmap(weather_icon_layer, unknown);
+  }*/
+
+
+  switch (display_code) {
+    case 0: // Unknown code
+      bitmap_layer_set_bitmap(weather_icon_layer, unknown);
+      break;
+    case 1: // Thunderstorm
+      bitmap_layer_set_bitmap(weather_icon_layer, thunder);
+      break;
+    case 2: // Clear day
+      bitmap_layer_set_bitmap(weather_icon_layer, clear_day);
+      break;
+    case 3: // Clear night
+      bitmap_layer_set_bitmap(weather_icon_layer, clear_night);
+      break;
+    case 4: // Partly cloudy day
+      bitmap_layer_set_bitmap(weather_icon_layer, pcloudy_day);
+      break;
+    case 5: // Partly cloudy night
+      bitmap_layer_set_bitmap(weather_icon_layer, pcloudy_night);
+      break;
+    case 6: // Cloudy
+      bitmap_layer_set_bitmap(weather_icon_layer, cloudy);
+      break;
+    case 7: // Fog
+      bitmap_layer_set_bitmap(weather_icon_layer, fog);
+      break;
+    case 8: // Snow
+      bitmap_layer_set_bitmap(weather_icon_layer, snow);
+      break;
+    case 9: // Rain
+      bitmap_layer_set_bitmap(weather_icon_layer, rain);
+      break;
+    case 10: // No icon while loading
+      bitmap_layer_set_bitmap(weather_icon_layer, NULL);
+      break;
+    default: // Default to unknown
+      bitmap_layer_set_bitmap(weather_icon_layer, unknown);
+      break;
   }
 
 }
@@ -107,7 +148,7 @@ static void main_window_load(Window *window) {
   fog = gbitmap_create_as_sub_bitmap(weather_icons, GRect(48, 16, 16, 16));
   unknown = gbitmap_create_as_sub_bitmap(weather_icons, GRect(64, 16, 16, 16));
 
-  weather_icon_update_proc(0); // Show no icon
+  weather_icon_update_proc(10); // Show no icon
 
   // Create fonts
   time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_TIME_FONT_48));

@@ -16,29 +16,31 @@ function locationSuccess(pos) {
   console.log("Fetching weather with GPS location");
   console.log("Lat is " + pos.coords.latitude);
   console.log("Lon is " + pos.coords.longitude);
-  var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + '&appid=26572bd92483d703bc3cf2e160e95cd1&lang=';
+  var url = 'https://query.yahooapis.com/v1/public/yql?q=' + 'select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text="(' + pos.coords.latitude + ', ' + pos.coords.longitude + ')") and u="c" &format=json';
 
   console.log('URL is ' + url);
 
-  // Send request to OpenWeatherMap
+  // Send request to Yahoo Weather
   xhrRequest(url, 'GET',
     function(responseText) {
       console.log("Parsing JSON");
 
       var json = JSON.parse(responseText); // Parse JSON response
 
-      if (!json.main) {
+      if (parseInt(json.query.count) == 0) { // No weather data was returned
         var dictionary = {
           "MsgKeyError": "error",
         };
       } else {
-        var temperature = Math.round(((json.main.temp - 273.15) * 1.8) + 32); // Convert from Kelvin to Fahrenheit
+        var item = json.query.results.channel.item;
+
+        var temperature = parseInt((item.condition.temp * 1.8) + 32); // Convert from Celsius to Fahrenheit
         console.log("Temperature in Fahrenheit is " + temperature);
 
-        var temperaturec = Math.round(json.main.temp - 273.15); // Convert from Kelvin to Celsius
+        var temperaturec = parseInt(item.condition.temp);
         console.log("Temperature in Celsius is " + temperaturec);
 
-        var condcode = json.weather[0].id;
+        var condcode = parseInt(item.condition.code);
         console.log("Conditions code is " + condcode);
 
         // Assemble weather info into dictionary
